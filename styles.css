@@ -1,0 +1,254 @@
+/* More CSS.
+   Tip: Use the README for guidance.
+   
+   Important Instructions (Read Before You Start)
+
+    This lab contains two types of CSS work:
+
+    1. Some selectors must be written from scratch  
+        -You will create new CSS rules for certain classes or ids that currently have no styles.
+
+    2. Some selectors already have CSS rules defined 
+        -For these, do NOT create a new selector again.  
+        -Instead, add the required properties inside the existing rule.
+
+    What NOT to Do
+    Do not write duplicate selectors like this:
+
+    /* .card {
+      existing styles (add new style in the exiting selector).
+    } */
+
+    /* .card {
+      duplicate selector created again to add new styles.
+    } */
+*/
+
+/*
+  TODO 0: Link the style sheet using the link tag inside the head tag.
+*/
+
+/* TODO 1:
+  - Define CSS variables on :root for brand colors:
+      1. Define --brand variable and set a color value of #2563eb for primary UI elements
+      2. Define --brand-dark variable and set a darker color value of #1d4ed8 for hover states
+  - Apply a global box-sizing reset using the universal selector (hint use * selector).
+*/
+
+/* TODO 2:
+   - Give .site-header & .site-footer a subtle background using var(--card)
+   - Make the .tagline class a bit muted (use var(--muted))
+*/
+
+/* TODO 3:
+   - Set the color to the brand variable and make the text bold for the .color-demo .color-note class.
+   - Set the color to var(--muted) and the font size to 0.95rem for the .color-demo .muted class.
+   - Style the .bg-sample class: Make the width of 100%, set a minimum height of 80px, add padding 0.75 rem and margin-block 0.75 rem, round the corners using border-radius, set the text color to white, and apply a 135-degree linear gradient background starting from the brand color and ending with a green tone like linear-gradient(135deg, var(--brand), #22c55e).
+*/
+
+/* TODO 4:
+   - For the .inline-label class: make it behave like an inline-block element with small padding of 0.25rem and 0.5 rem and a border of width 1 px, type as solid line, and set color of value rgba(0, 0, 0, 0.18).
+   - For the .inline-label.alt class: ensure it stays inline with others but use a different border style e.g. dashed.
+*/
+
+/* TODO 5:
+   - For the .copy .title class: choose any font-size (use rem), a font-weight between 600–700,
+     and apply text-transform: capitalize.
+   - For the .copy .intro class: set the font-style to italic and slightly increase the line-height and set the top margin of 0.25 rem.
+*/
+
+/* TODO 6:
+   - For the .toolbar class: make it a flex container, distribute items with space-between,
+     align them vertically in the center, and add a gap.
+   - For the .btn class: add padding, remove the default border, and provide hover feedback.
+   - For the .product-grid class: create a responsive flex grid by setting display:flex,
+     wrapping items using flex-wrap as wrap, adding a gap of 0.75rem, and top margin of 0.75rem.
+   - For the .product-grid .item class: Make each item flexible with a flex grow of 1px, flex shrinnk of 1px, and minimum width of 140px, set a minimum height of 90px, apply a soft background and rounded corners, center the content using flexbox, and make the text bold e.g. 700.
+*/
+
+/* TODO 7:
+  - .static-box: Add padding (0.5rem 0.75rem), round the corners (10px), apply a light gray background using rgba(0,0,0,0.05), and add bottom margin (0.5rem).
+*/
+
+/* Base CSS (already provided for you).*/
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  line-height: 1.5;
+  background: var(--bg);
+  color: #111827;
+}
+
+:root {
+  --muted: #6b7280;        /* muted text */
+  --bg: #f6f7fb;           /* page background */
+  --card: #ffffff;         /* card/background surfaces */
+}
+
+.site-header,
+.site-footer {
+  text-align: center;
+  padding: 1.25rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin-block: 1rem;
+}
+
+.box-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.toolbar {
+  padding: 0.5rem;
+  border: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.position-stage {
+  position: relative;
+  padding: 2rem;
+  min-height: 260px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.card {
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.08);
+}
+
+.copy .sample-text {
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  font-size: 1.1em;
+}
+
+.cta-link {
+  text-decoration: none;
+  color: var(--brand);
+  font-weight: 600;
+}
+
+.box {
+  width: 120px;
+  height: 80px;
+  padding: 0.5rem;
+  border: 2px solid rgba(0, 0, 0, 0.18);
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+}
+
+.b1 {
+  background: rgba(37, 99, 235, 0.12);
+  border-color: rgba(37, 99, 235, 0.5);
+}
+
+.b2 {
+  background: rgba(34, 197, 94, 0.12);
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+.b3 {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.55);
+}
+
+.relative-box {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  background: rgba(37, 99, 235, 0.12);
+  margin-bottom: 0.75rem;
+}
+
+.absolute-parent {
+  position: relative;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(34, 197, 94, 0.12);
+  margin-top: 0.5rem;
+}
+
+.relative-box {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  background: rgba(37, 99, 235, 0.12);
+  margin-bottom: 0.75rem;
+}
+
+.absolute-parent {
+  position: relative;
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(34, 197, 94, 0.12);
+  margin-top: 0.5rem;
+}
+
+.absolute-child {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.08);
+  font-weight: 700;
+}
+
+.fixed-badge {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(17, 24, 39, 0.85);
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.stack {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 800;
+}
+
+.stack.a {
+  background: rgba(245, 158, 11, 0.7);
+  z-index: 1;
+}
+
+.stack.b {
+  background: rgba(37, 99, 235, 0.7);
+  z-index: 2;
+  transform: translate(18px, -18px);
+}
