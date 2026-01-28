@@ -35,10 +35,18 @@
   - Apply a global box-sizing reset using the universal selector (hint use * selector).
 */
 
+* {
+  box-sizing: border-box;
+}
+
 /* TODO 2:
    - Give .site-header & .site-footer a subtle background using var(--card)
    - Make the .tagline class a bit muted (use var(--muted))
 */
+
+.tagline {
+  color: var(--muted);
+}
 
 /* TODO 3:
    - Set the color to the brand variable and make the text bold for the .color-demo .color-note class.
@@ -46,16 +54,59 @@
    - Style the .bg-sample class: Make the width of 100%, set a minimum height of 80px, add padding 0.75 rem and margin-block 0.75 rem, round the corners using border-radius, set the text color to white, and apply a 135-degree linear gradient background starting from the brand color and ending with a green tone like linear-gradient(135deg, var(--brand), #22c55e).
 */
 
+.color-demo .color-note {
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.color-demo .muted {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.bg-sample {
+  width: 100%;
+  min-height: 80px;
+  padding: 0.75rem;
+  margin-block: 0.75rem;
+  border-radius: 12px;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--brand), #22c55e);
+}
+
+
 /* TODO 4:
    - For the .inline-label class: make it behave like an inline-block element with small padding of 0.25rem and 0.5 rem and a border of width 1 px, type as solid line, and set color of value rgba(0, 0, 0, 0.18).
    - For the .inline-label.alt class: ensure it stays inline with others but use a different border style e.g. dashed.
 */
+
+.inline-label {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.inline-label.alt {
+  border-style: dashed;
+}
 
 /* TODO 5:
    - For the .copy .title class: choose any font-size (use rem), a font-weight between 600–700,
      and apply text-transform: capitalize.
    - For the .copy .intro class: set the font-style to italic and slightly increase the line-height and set the top margin of 0.25 rem.
 */
+
+.copy .title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.copy .intro {
+  font-style: italic;
+  line-height: 1.7;
+  margin-top: 0.25rem;
+}
 
 /* TODO 6:
    - For the .toolbar class: make it a flex container, distribute items with space-between,
@@ -66,9 +117,50 @@
    - For the .product-grid .item class: Make each item flexible with a flex grow of 1px, flex shrinnk of 1px, and minimum width of 140px, set a minimum height of 90px, apply a soft background and rounded corners, center the content using flexbox, and make the text bold e.g. 700.
 */
 
+.btn {
+  padding: 0.5rem 0.75rem;
+  border: 0;
+  border-radius: 10px;
+  background: var(--brand);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--brand-dark);
+  transform: translateY(-1px);
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.product-grid .item {
+  flex: 1 1 140px;
+  min-height: 90px;
+  background: rgba(37, 99, 235, 0.12);
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+}
+
 /* TODO 7:
   - .static-box: Add padding (0.5rem 0.75rem), round the corners (10px), apply a light gray background using rgba(0,0,0,0.05), and add bottom margin (0.5rem).
 */
+
+.static-box {
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.05);
+  margin-bottom: 0.5rem;
+}
 
 /* Base CSS (already provided for you).*/
 
@@ -83,7 +175,10 @@ body {
 }
 
 :root {
-  --muted: #6b7280;        /* muted text */
+  --brand: #2563eb;       /* TODO1 */
+  --brand-dark: #1d4ed8;  /* TODO1 */
+
+  --muted: #6b7280;       /* muted text */
   --bg: #f6f7fb;           /* page background */
   --card: #ffffff;         /* card/background surfaces */
 }
@@ -92,6 +187,8 @@ body {
 .site-footer {
   text-align: center;
   padding: 1.25rem;
+
+  background: var(--card); /* TODO2 */
 }
 
 .container {
@@ -116,6 +213,11 @@ body {
 .toolbar {
   padding: 0.5rem;
   border: 1px dashed rgba(0, 0, 0, 0.1);
+
+  display: flex; /* TODO6 */
+  justify-content: space-between; /* TODO6 */
+  align-items: center; /* TODO6 */
+  gap: 0.75rem; /* TODO6 */
 }
 
 .position-stage {
